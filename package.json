@@ -1,0 +1,15 @@
+{
+  "name": "sonic-tester",
+  "version": "0.0.2",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "sonic": "node sonic-test-responses.js"
+  },
+  "author": "coderwally",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ethers": "^6.13.2"
+  }
+}
