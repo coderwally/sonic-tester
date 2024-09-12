@@ -6,27 +6,30 @@ const contractAddress = "0x0b7488006Fd86857A2bf91a5A45d921a568279D4";
 const contractABI = require('./sonic-test-contract-abi.json');
 const privateKey = `0x${process.env.PRIVATE_KEY}`;
 
-const rpcUrl = 'https://rpc.testnet.soniclabs.com';
 
-const { defineChain } = require('viem');
+
+//const { defineChain } = require('viem');
+const sonicTestnet = require('./helpers/viemHelper.js');
  
-const sonicTestnet = defineChain({
-  id: 64165,
-  name: 'Sonic Testnet',
-  nativeCurrency: {
-    decimals: 18,
-    name: 'Sonic',
-    symbol: 'S',
-  },
-  rpcUrls: {
-    default: {
-      http: [rpcUrl]
-    },
-  },
-  blockExplorers: {
-    default: { name: 'Explorer', url: 'https://testnet.soniclabs.com/' },
-  }
-});
+// const sonicTestnet = defineChain({
+//   id: 64165,
+//   name: 'Sonic Testnet',
+//   nativeCurrency: {
+//     decimals: 18,
+//     name: 'Sonic',
+//     symbol: 'S',
+//   },
+//   rpcUrls: {
+//     default: {
+//       http: [rpcUrl]
+//     },
+//   },
+//   blockExplorers: {
+//     default: { name: 'Explorer', url: 'https://testnet.soniclabs.com/' },
+//   }
+// });
+
+
 
 const publicClient = createPublicClient({
     chain: sonicTestnet,
