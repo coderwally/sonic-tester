@@ -2,39 +2,19 @@ const { createPublicClient, http, createWalletClient } = require('viem');
 const { privateKeyToAccount } = require('viem/accounts');
 require('dotenv').config();
 
-const contractAddress = "0x0b7488006Fd86857A2bf91a5A45d921a568279D4";
+const contractAddress = "0xe2107D1c08d957178C11c028dC58D1DE507C68A9";
 const contractABI = require('./sonic-test-contract-abi.json');
 const privateKey = `0x${process.env.PRIVATE_KEY}`;
 
-const rpcUrl = "https://rpc.testnet.soniclabs.com";
-
-const { defineChain } = require('viem');
- 
-const sonicTestnet = defineChain({
-  id: 64165,
-  name: 'Sonic Testnet',
-  nativeCurrency: {
-    decimals: 18,
-    name: 'Sonic',
-    symbol: 'S',
-  },
-  rpcUrls: {
-    default: {
-      http: [rpcUrl]
-    },
-  },
-  blockExplorers: {
-    default: { name: 'Explorer', url: 'https://testnet.soniclabs.com/' },
-  }
-});
+const { fantomTestnet } = require('viem/chains');
 
 const publicClient = createPublicClient({
-    chain: sonicTestnet,
+    chain: fantomTestnet,
     transport: http(),
 });
 
 const walletClient = createWalletClient({
-    chain: sonicTestnet,
+    chain: fantomTestnet,
     transport: http(),
 });
 
